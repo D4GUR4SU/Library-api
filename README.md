@@ -8,13 +8,14 @@
   </p>
 
   <p align="center">
-    <img src="https://img.shields.io/badge/Spring Tool Suite-V4.13.0.RELEASE-green">
-    <img src="https://img.shields.io/badge/Java-11-red">
-    <img src="https://img.shields.io/badge/Maven-V3.6.3-red">
+    <img src="https://img.shields.io/badge/Java-OpenJDK11-purple">
+    <img src="https://img.shields.io/badge/Spring Tool Suite-V4.13.0-green">
+    <img src="https://img.shields.io/badge/Model Mapper-V3.0.0-yellowgreen">
+    <img src="https://img.shields.io/badge/Maven-V3.6.3-blue">
   </p>
 
   <p align="center">
-     <a href="#-sobre-o-projeto">Sobre</a> •
+    • <a href="#-sobre-o-projeto">Sobre</a> •
      <a href="#-atividades">Atividades</a> •
      <a href="#-tecnologias">Tecnologias</a> • 
      <a href="#-autor">Autor</a> • 
@@ -29,7 +30,7 @@
 
 ## ⚙️ Atividades
   
-- [ ] Modelar uma API RESTfUL, utilizando os métodos HTTP, códigos de resposta, etc.
+- [ ] Modelar uma API RESTFul, utilizando os métodos HTTP, códigos de resposta, etc.
 - [ ] Criar serviço de agendamento de tarefas e envio de emails com Java;
 - [ ] Documentação de API's com Swagger
 - [ ] Implementação de testes automatizados;
