@@ -4,6 +4,6 @@ import com.dagurasu.libraryapi.api.entity.Book;
 
 public interface BookService {
 
-	Book save(Book any);
+	Book save(Book book);
 
 }
