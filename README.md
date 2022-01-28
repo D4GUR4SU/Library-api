@@ -4,7 +4,7 @@
   <br>
 
   <p align="center">
-    <img src="src/../library-api/src/main/resources/img/banner.png">
+    <img src="src/main/resources/img/banner.png">
   </p>
 
   <p align="center">
