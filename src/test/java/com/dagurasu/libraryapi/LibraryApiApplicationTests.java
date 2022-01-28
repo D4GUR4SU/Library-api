@@ -1,4 +1,4 @@
-package com.dagurasu;
+package com.dagurasu.libraryapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
