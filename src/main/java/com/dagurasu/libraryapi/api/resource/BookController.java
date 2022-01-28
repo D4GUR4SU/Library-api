@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dagurasu.libraryapi.api.dto.BookDTO;
 import com.dagurasu.libraryapi.api.entity.Book;
-import com.dagurasu.libraryapi.api.exceptions.ApiErrors;
+import com.dagurasu.libraryapi.api.exception.ApiErrors;
 import com.dagurasu.libraryapi.api.service.BookService;
+import com.dagurasu.libraryapi.exception.BusinessException;
 
 @RestController
 @RequestMapping("/api/books")
@@ -43,5 +44,11 @@ public class BookController {
 	public ApiErrors handleValidationException(MethodArgumentNotValidException exception) {
 		BindingResult bindingResult = exception.getBindingResult();
 		return new ApiErrors(bindingResult);
+	}
+	
+	@ExceptionHandler(BusinessException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ApiErrors handleBusinessException(BusinessException ex) {
+		return new ApiErrors(ex);
 	}
 }
