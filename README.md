@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Java-11-red">
     <img src="https://img.shields.io/badge/Maven-V3.6.3-red">
   </p>
-  VSCode
+
   <p align="center">
      <a href="#-sobre-o-projeto">Sobre</a> •
      <a href="#-atividades">Atividades</a> •
