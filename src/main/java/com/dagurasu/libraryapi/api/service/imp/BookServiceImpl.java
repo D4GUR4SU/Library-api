@@ -2,6 +2,8 @@ package com.dagurasu.libraryapi.api.service.imp;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.dagurasu.libraryapi.api.model.entity.Book;
@@ -45,6 +47,11 @@ public class BookServiceImpl implements BookService {
 			throw new IllegalArgumentException("Book id can't be null.");
 		}
 		return this.repository.save(book);
+	}
+
+	@Override
+	public Page<Book> find(Book filter, Pageable pageRequest) {
+		return null;
 	}
 
 }
