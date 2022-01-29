@@ -1,5 +1,7 @@
 package com.dagurasu.libraryapi.api.service.imp;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.dagurasu.libraryapi.api.entity.Book;
@@ -22,6 +24,11 @@ public class BookServiceImpl implements BookService {
 			throw new BusinessException("Isbn já cadastrado.");
 		}
 		return repository.save(book);
+	}
+
+	@Override
+	public Optional<Book> getById(Long id) {
+		return Optional.empty();
 	}
 
 }
