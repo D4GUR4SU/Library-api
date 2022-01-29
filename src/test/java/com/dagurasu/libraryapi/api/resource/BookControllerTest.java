@@ -1,5 +1,6 @@
 package com.dagurasu.libraryapi.api.resource;
 
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Optional;
@@ -155,6 +156,34 @@ public class BookControllerTest {
 				.accept(MediaType.APPLICATION_JSON);
 		
 		mvc.perform(request).andExpect(status().isNotFound());
+		
+	}
+	
+	@Test
+	@DisplayName("Deve deletar um livro")
+	public void deleteBookTest() throws Exception {
+		
+		BDDMockito.given(service.getById(anyLong())).willReturn(Optional.of(Book.builder().id(1l).build()));
+		
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+				.delete(BOOK_API.concat("/" + 1));
+		
+		mvc.perform(request)
+			.andExpect(status().isNoContent());
+		
+	}
+	
+	@Test
+	@DisplayName("Deve retornar resource not found quando não encontrar um livro para deletar")
+	public void deleteInexistentBookTest() throws Exception {
+		
+		BDDMockito.given(service.getById(anyLong())).willReturn(Optional.empty());
+		
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+				.delete(BOOK_API.concat("/" + 1));
+		
+		mvc.perform(request)
+			.andExpect(status().isNotFound());
 		
 	}
 
