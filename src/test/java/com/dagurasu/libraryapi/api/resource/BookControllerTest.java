@@ -67,11 +67,11 @@ public class BookControllerTest {
 				.content(json);
 
 		mvc.perform(request)
-				.andExpect(MockMvcResultMatchers.status().isCreated())
-				.andExpect(MockMvcResultMatchers.jsonPath("id").isNotEmpty())
-				.andExpect(MockMvcResultMatchers.jsonPath("title").value(dto.getTitle()))
-				.andExpect(MockMvcResultMatchers.jsonPath("author").value(dto.getAuthor()))
-				.andExpect(MockMvcResultMatchers.jsonPath("isbn").value(dto.getIsbn()));
+			.andExpect(MockMvcResultMatchers.status().isCreated())
+			.andExpect(MockMvcResultMatchers.jsonPath("id").isNotEmpty())
+			.andExpect(MockMvcResultMatchers.jsonPath("title").value(dto.getTitle()))
+			.andExpect(MockMvcResultMatchers.jsonPath("author").value(dto.getAuthor()))
+			.andExpect(MockMvcResultMatchers.jsonPath("isbn").value(dto.getIsbn()));
 
 	}
 
@@ -88,8 +88,8 @@ public class BookControllerTest {
 				.content(json);
 
 		mvc.perform(request)
-				.andExpect(status().isBadRequest())
-				.andExpect(MockMvcResultMatchers.jsonPath("errors", Matchers.hasSize(3)));
+			.andExpect(status().isBadRequest())
+			.andExpect(MockMvcResultMatchers.jsonPath("errors", Matchers.hasSize(3)));
 	}
 
 	@Test
@@ -110,9 +110,9 @@ public class BookControllerTest {
 				.content(json);
 
 		mvc.perform(request)
-				.andExpect(status().isBadRequest())
-				.andExpect(MockMvcResultMatchers.jsonPath("errors", Matchers.hasSize(1)))
-				.andExpect(MockMvcResultMatchers.jsonPath("errors[0]").value(errorMsg));
+			.andExpect(status().isBadRequest())
+			.andExpect(MockMvcResultMatchers.jsonPath("errors", Matchers.hasSize(1)))
+			.andExpect(MockMvcResultMatchers.jsonPath("errors[0]").value(errorMsg));
 
 	}
 	
@@ -136,12 +136,26 @@ public class BookControllerTest {
 				.accept(MediaType.APPLICATION_JSON);
 		
 		mvc.perform(request)
-		.andExpect(status().isOk())
-		.andExpect(MockMvcResultMatchers.jsonPath("id").value(id))
-		.andExpect(MockMvcResultMatchers.jsonPath("title").value(createNewBook().getTitle()))
-		.andExpect(MockMvcResultMatchers.jsonPath("author").value(createNewBook().getAuthor()))
-		.andExpect(MockMvcResultMatchers.jsonPath("isbn").value(createNewBook().getIsbn()));
+			.andExpect(status().isOk())
+			.andExpect(MockMvcResultMatchers.jsonPath("id").value(id))
+			.andExpect(MockMvcResultMatchers.jsonPath("title").value(createNewBook().getTitle()))
+			.andExpect(MockMvcResultMatchers.jsonPath("author").value(createNewBook().getAuthor()))
+			.andExpect(MockMvcResultMatchers.jsonPath("isbn").value(createNewBook().getIsbn()));
 
+	}
+	
+	@Test
+	@DisplayName("Deve retornar resource not found quando o livro procurado não existir.")
+	public void bookNotFoundTest() throws Exception {
+		
+		BDDMockito.given(service.getById(Mockito.anyLong())).willReturn(Optional.empty());
+		
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+				.get(BOOK_API.concat("/" + 1))
+				.accept(MediaType.APPLICATION_JSON);
+		
+		mvc.perform(request).andExpect(status().isNotFound());
+		
 	}
 
 	private BookDTO createNewBook() {
