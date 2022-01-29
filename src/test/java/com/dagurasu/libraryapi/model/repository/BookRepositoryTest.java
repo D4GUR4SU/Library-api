@@ -2,6 +2,8 @@ package com.dagurasu.libraryapi.model.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,7 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.dagurasu.libraryapi.api.entity.Book;
+import com.dagurasu.libraryapi.api.model.entity.Book;
 import com.dagurasu.libraryapi.api.model.repository.BookRepository;
 
 @DataJpaTest
@@ -30,12 +32,16 @@ public class BookRepositoryTest {
 	public void returnTrueWhenIsbnExists() {
 
 		String isbn = "123";
-		Book book = Book.builder().title("O Mestre do Bug").author("Douglas").isbn(isbn).build();
+		Book book = createNewBook(isbn);
 		entityManager.persist(book);
 
 		boolean exists = repository.existsByIsbn(isbn);
 
 		assertThat(exists).isTrue();
+	}
+
+	private Book createNewBook(String isbn) {
+		return Book.builder().title("O Mestre do Bug").author("Douglas").isbn(isbn).build();
 	}
 	
 	@Test
@@ -47,5 +53,17 @@ public class BookRepositoryTest {
 		boolean exists = repository.existsByIsbn(isbn);
 
 		assertThat(exists).isFalse();
+	}
+	
+	@Test
+	@DisplayName("Deve obter um livro por id.")
+	public void findbyIdTest() {
+		
+		Book book = createNewBook("123");
+		entityManager.persist(book);
+		
+		Optional<Book> foundBook = repository.findById(book.getId());
+		
+		assertThat(foundBook.isPresent()).isTrue();
 	}
 }

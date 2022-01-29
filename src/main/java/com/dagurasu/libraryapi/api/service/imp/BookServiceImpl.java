@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.dagurasu.libraryapi.api.entity.Book;
+import com.dagurasu.libraryapi.api.model.entity.Book;
 import com.dagurasu.libraryapi.api.model.repository.BookRepository;
 import com.dagurasu.libraryapi.api.service.BookService;
 import com.dagurasu.libraryapi.exception.BusinessException;

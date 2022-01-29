@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.dagurasu.libraryapi.api.dto.BookDTO;
-import com.dagurasu.libraryapi.api.entity.Book;
 import com.dagurasu.libraryapi.api.exception.ApiErrors;
+import com.dagurasu.libraryapi.api.model.entity.Book;
 import com.dagurasu.libraryapi.api.service.BookService;
 import com.dagurasu.libraryapi.exception.BusinessException;
 

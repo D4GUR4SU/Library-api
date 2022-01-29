@@ -14,7 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.dagurasu.libraryapi.api.entity.Book;
+import com.dagurasu.libraryapi.api.model.entity.Book;
 import com.dagurasu.libraryapi.api.model.repository.BookRepository;
 import com.dagurasu.libraryapi.api.service.imp.BookServiceImpl;
 import com.dagurasu.libraryapi.exception.BusinessException;

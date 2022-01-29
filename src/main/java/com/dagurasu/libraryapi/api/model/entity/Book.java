@@ -1,4 +1,4 @@
-package com.dagurasu.libraryapi.api.entity;
+package com.dagurasu.libraryapi.api.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

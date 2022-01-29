@@ -2,7 +2,7 @@ package com.dagurasu.libraryapi.api.service;
 
 import java.util.Optional;
 
-import com.dagurasu.libraryapi.api.entity.Book;
+import com.dagurasu.libraryapi.api.model.entity.Book;
 
 public interface BookService {
 
