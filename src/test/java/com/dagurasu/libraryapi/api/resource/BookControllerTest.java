@@ -33,10 +33,10 @@ import com.dagurasu.libraryapi.api.service.BookService;
 import com.dagurasu.libraryapi.exception.BusinessException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@WebMvcTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)
+@WebMvcTest(controllers = BookController.class)
 public class BookControllerTest {
 
 	static String BOOK_API = "/api/books";
