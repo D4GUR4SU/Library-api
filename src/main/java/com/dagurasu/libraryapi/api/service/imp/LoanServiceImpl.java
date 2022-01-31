@@ -3,6 +3,7 @@ package com.dagurasu.libraryapi.api.service.imp;
 import com.dagurasu.libraryapi.api.model.entity.Loan;
 import com.dagurasu.libraryapi.api.model.repository.LoanRepository;
 import com.dagurasu.libraryapi.api.service.LoanService;
+import com.dagurasu.libraryapi.exception.BusinessException;
 
 public class LoanServiceImpl implements LoanService {
 
@@ -15,6 +16,9 @@ public class LoanServiceImpl implements LoanService {
 	
 	@Override
 	public Loan save(Loan loan) {
+		if(repository.existsByBookAndNotReturned(loan.getBook())) {
+			throw new BusinessException("Book already loaned");
+		}
 		return repository.save(loan);
 	}
 
