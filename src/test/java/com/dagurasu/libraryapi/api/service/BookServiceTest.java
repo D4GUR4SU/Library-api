@@ -1,6 +1,9 @@
 package com.dagurasu.libraryapi.api.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
@@ -120,57 +123,72 @@ public class BookServiceTest {
 
 		Mockito.verify(repository, Mockito.never()).delete(book);
 	}
-	
+
 	@Test
 	@DisplayName("Deve ocorrer erro ao tentar atualizar um livro inexistente.")
 	public void updateInvalidBookTest() {
 		Book book = new Book();
-		
+
 		org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () -> service.update(book));
-		
+
 		Mockito.verify(repository, Mockito.never()).save(book);
 	}
-	
+
 	@Test
 	@DisplayName("Deve atualizar um livro existente.")
 	public void updateBookTest() {
 		Long id = 1l;
-		
+
 		Book updatingBook = Book.builder().id(id).build();
-		
+
 		Book updatedBook = createValidBook();
 		updatedBook.setId(id);
 
 		Mockito.when(repository.save(updatingBook)).thenReturn(updatedBook);
-		
+
 		Book book = service.update(updatingBook);
-		
+
 		assertThat(book.getId()).isEqualTo(updatedBook.getId());
 		assertThat(book.getTitle()).isEqualTo(updatedBook.getTitle());
 		assertThat(book.getAuthor()).isEqualTo(updatedBook.getAuthor());
 		assertThat(book.getIsbn()).isEqualTo(updatedBook.getIsbn());
 	}
-	
+
 	@Test
 	@DisplayName("Deve filtrar livros pela propriedade.")
 	public void findBookTest() {
-		
+
 		Book book = createValidBook();
-		
+
 		PageRequest pageRequest = PageRequest.of(0, 10);
-		
+
 		List<Book> lista = Arrays.asList(book);
 		Page<Book> page = new PageImpl<Book>(lista, pageRequest, 1);
-		Mockito.when(repository.findAll(Mockito.any(Example.class), Mockito.any(PageRequest.class)))
-			.thenReturn(page);
-		
+		Mockito.when(repository.findAll(Mockito.any(Example.class), Mockito.any(PageRequest.class))).thenReturn(page);
+
 		Page<Book> result = service.find(book, pageRequest);
-		
+
 		assertThat(result.getTotalElements()).isEqualTo(1);
 		assertThat(result.getContent()).isEqualTo(lista);
 		assertThat(result.getPageable().getPageNumber()).isEqualTo(0);
 		assertThat(result.getPageable().getPageSize()).isEqualTo(10);
-		
+
+	}
+
+	@Test
+	@DisplayName("Deve obter um livro pelo isbn.")
+	public void getBookByIsbn() {
+
+		String isbn = "1230";
+		when(repository.findByIsbn(isbn)).thenReturn(Optional.of(Book.builder().id(1l).isbn(isbn).build()));
+
+		Optional<Book> book = service.getBookByIsbn(isbn);
+
+		assertThat(book.isPresent()).isTrue();
+		assertThat(book.get().getId()).isEqualTo(1l);
+		assertThat(book.get().getIsbn()).isEqualTo(isbn);
+
+		verify(repository, times(1)).findByIsbn(isbn);
 	}
 
 	private Book createValidBook() {
