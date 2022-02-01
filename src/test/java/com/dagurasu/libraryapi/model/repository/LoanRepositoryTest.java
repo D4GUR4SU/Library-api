@@ -73,9 +73,9 @@ public class LoanRepositoryTest {
 	}
 	
 	@Test
-	@DisplayName("Não deve obter empréstimos cuja data empréstimo for menor ou igual a três dias atrás e não retornados.")
+	@DisplayName("Deve retornar vazio quando não houver empréstimos atrasados.")
 	public void notFindByLoansDateLessThanAndNotReturned() {
-		Loan loan = createAndPersistLoan(LocalDate.now());
+		createAndPersistLoan(LocalDate.now());
 		
 		List<Loan> result = repository.findByLoansDateLessThanAndNotReturned(LocalDate.now().minusDays(4));
 		
