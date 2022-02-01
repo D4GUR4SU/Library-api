@@ -43,11 +43,24 @@ public class LoanServiceTest {
 		Book book = Book.builder().id(1l).build();
 		String customer = "Fulano";
 
-		Loan savingLoan = Loan.builder().book(book).customer(customer).loanDate(LocalDate.now()).build();
+		Loan savingLoan = Loan.builder()
+				.book(book)
+				.customer(customer)
+				.loanDate(LocalDate.now())
+				.build();
 
-		Loan savedLoan = Loan.builder().id(1l).book(book).customer(customer).loanDate(LocalDate.now()).build();
+		Loan savedLoan = Loan.builder()
+				.id(1l)
+				.book(book)
+				.customer(customer)
+				.loanDate(LocalDate.now())
+				.build();
 
-		when(repository.save(savingLoan)).thenReturn(savedLoan);
+		when(repository.existsByBookAndNotReturned(book))
+			.thenReturn(false);
+		
+		when(repository.save(savingLoan))
+			.thenReturn(savedLoan);
 
 		Loan loan = service.save(savingLoan);
 		
@@ -65,9 +78,14 @@ public class LoanServiceTest {
 		Book book = Book.builder().id(1l).build();
 		String customer = "Fulano";
 
-		Loan savingLoan = Loan.builder().book(book).customer(customer).loanDate(LocalDate.now()).build();
+		Loan savingLoan = Loan.builder()
+				.book(book)
+				.customer(customer)
+				.loanDate(LocalDate.now())
+				.build();
 
-		when(repository.existsByBookAndNotReturned(book)).thenReturn(true);
+		when(repository.existsByBookAndNotReturned(book))
+			.thenReturn(true);
 		
 		Throwable exception = catchThrowable(() -> service.save(savingLoan));
 		
@@ -76,7 +94,6 @@ public class LoanServiceTest {
 			.hasMessage("Book already loaned");
 		
 		verify(repository, never()).save(savingLoan);
-		
 		
 	}
 
