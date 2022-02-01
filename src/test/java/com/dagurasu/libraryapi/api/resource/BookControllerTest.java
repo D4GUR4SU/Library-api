@@ -30,6 +30,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import com.dagurasu.libraryapi.api.dto.BookDTO;
 import com.dagurasu.libraryapi.api.model.entity.Book;
 import com.dagurasu.libraryapi.api.service.BookService;
+import com.dagurasu.libraryapi.api.service.LoanService;
 import com.dagurasu.libraryapi.exception.BusinessException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -46,6 +47,9 @@ public class BookControllerTest {
 
 	@MockBean
 	BookService service;
+	
+	@MockBean
+    LoanService loanService;
 
 	@Test
 	@DisplayName("Deve criar um livro com sucesso.")
