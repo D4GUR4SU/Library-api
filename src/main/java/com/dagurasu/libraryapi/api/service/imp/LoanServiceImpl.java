@@ -1,5 +1,7 @@
 package com.dagurasu.libraryapi.api.service.imp;
 
+import java.util.Optional;
+
 import com.dagurasu.libraryapi.api.model.entity.Loan;
 import com.dagurasu.libraryapi.api.model.repository.LoanRepository;
 import com.dagurasu.libraryapi.api.service.LoanService;
@@ -20,6 +22,16 @@ public class LoanServiceImpl implements LoanService {
 			throw new BusinessException("Book already loaned");
 		}
 		return repository.save(loan);
+	}
+
+	@Override
+	public Optional<Loan> getById(Long id) {
+		return null;
+	}
+
+	@Override
+	public Loan update(Loan loan) {
+		return null;
 	}
 
 }

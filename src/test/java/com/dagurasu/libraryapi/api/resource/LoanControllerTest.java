@@ -1,5 +1,7 @@
 package com.dagurasu.libraryapi.api.resource;
 
+import static org.mockito.Mockito.verify;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -7,11 +9,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.time.LocalDate;
 import java.util.Optional;
 
+import org.h2.result.UpdatableRow;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
+import org.mockito.BDDMockito.BDDMyOngoingStubbing;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -25,11 +29,13 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.dagurasu.libraryapi.api.dto.LoanDTO;
+import com.dagurasu.libraryapi.api.dto.ReturnedLoanDTO;
 import com.dagurasu.libraryapi.api.model.entity.Book;
 import com.dagurasu.libraryapi.api.model.entity.Loan;
 import com.dagurasu.libraryapi.api.service.BookService;
 import com.dagurasu.libraryapi.api.service.LoanService;
 import com.dagurasu.libraryapi.exception.BusinessException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(controllers = LoanController.class)
@@ -105,6 +111,27 @@ public class LoanControllerTest {
 		mvc.perform(request).andExpect(status().isBadRequest()).andExpect(jsonPath("errors", Matchers.hasSize(1)))
 				.andExpect(jsonPath("errors[0]").value("Book already loaned"));
 
+	}
+	
+	@Test
+	@DisplayName("Deve retornar um livro.")
+	public void returnBookTest() throws Exception {
+		
+		ReturnedLoanDTO dto = ReturnedLoanDTO.builder().returned(true).build();
+		
+		Loan loan = Loan.builder().id(1l).build();
+		
+		BDDMockito.given(loanService.getById(Mockito.anyLong())).willReturn(Optional.of(loan));
+
+		String json = new ObjectMapper().writeValueAsString(dto);
+		
+		mvc.perform(patch(LOAN_API.concat("/1"))
+				.accept(MediaType.APPLICATION_JSON)
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(json)
+				).andExpect(status().isOk());
+		
+		verify(loanService, Mockito.times(1)).update(loan);
 	}
 
 }
