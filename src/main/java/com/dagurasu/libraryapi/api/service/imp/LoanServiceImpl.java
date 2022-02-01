@@ -2,6 +2,10 @@ package com.dagurasu.libraryapi.api.service.imp;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.dagurasu.libraryapi.api.dto.LoanFilterDTO;
 import com.dagurasu.libraryapi.api.model.entity.Loan;
 import com.dagurasu.libraryapi.api.model.repository.LoanRepository;
 import com.dagurasu.libraryapi.api.service.LoanService;
@@ -32,6 +36,11 @@ public class LoanServiceImpl implements LoanService {
 	@Override
 	public Loan update(Loan loan) {
 		return repository.save(loan);
+	}
+
+	@Override
+	public Page<Loan> find(LoanFilterDTO filterDTO, Pageable pageable) {
+		return null;
 	}
 
 }
