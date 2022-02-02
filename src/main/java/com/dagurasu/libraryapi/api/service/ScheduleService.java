@@ -32,7 +32,6 @@ public class ScheduleService {
 				.map(loan -> loan.getCustomerEmail())
 				.collect(Collectors.toList());
 		
-		
 		emailService.sendEmails(mensagem, mailList);
 	}
 }
