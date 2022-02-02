@@ -28,6 +28,7 @@ public class ApplicationControllerAdvice {
 		return new ApiErrors(ex);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@ExceptionHandler(ResponseStatusException.class)
 	public ResponseEntity handleResdponseStatusException(ResponseStatusException ex) {
 

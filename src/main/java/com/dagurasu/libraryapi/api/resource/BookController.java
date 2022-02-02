@@ -28,11 +28,16 @@ import com.dagurasu.libraryapi.api.model.entity.Loan;
 import com.dagurasu.libraryapi.api.service.BookService;
 import com.dagurasu.libraryapi.api.service.LoanService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
+@Api("Book API")
 public class BookController {
 
 	public final BookService service;
@@ -41,6 +46,10 @@ public class BookController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation("Create a book")
+	@ApiResponses({
+		@ApiResponse(code = 201, message = "Book successfully created!")
+	})
 	public BookDTO create(@RequestBody @Valid BookDTO dto) {
 		Book entity = modelMapper.map(dto, Book.class);
 		entity = service.save(entity);
@@ -48,6 +57,7 @@ public class BookController {
 	}
 
 	@GetMapping("{id}")
+	@ApiOperation("Obtains a book details by id")
 	public BookDTO get(@PathVariable Long id) {
 		return service.getById(id).map(book -> modelMapper.map(book, BookDTO.class))
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -55,12 +65,20 @@ public class BookController {
 
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ApiOperation("Delete a book by id")
+	@ApiResponses({
+		@ApiResponse(code = 204, message = "Book successfully deleted!")
+	})
 	public void delete(@PathVariable Long id) {
 		Book book = service.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 		service.delete(book);
 	}
 
 	@PutMapping("{id}")
+	@ApiOperation("Update a book")
+	@ApiResponses({
+		@ApiResponse(code = 201, message = "Book successfully created!")
+	})
 	public BookDTO update(@PathVariable Long id, BookDTO dto) {
 		return service.getById(id).map(book -> {
 			
@@ -74,6 +92,7 @@ public class BookController {
 	}
 	
 	@GetMapping
+	@ApiOperation("Find book by params")
 	public Page<BookDTO> find(BookDTO dto, Pageable pageRequest) {
 		
 		Book filter = modelMapper.map(dto, Book.class);
