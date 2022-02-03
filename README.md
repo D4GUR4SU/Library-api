@@ -8,9 +8,9 @@
   </p>
 
   <p align="center">
+    <img src="https://app.travis-ci.com/Dagurasu56/library-api.svg?branch=main">
     <img src="https://img.shields.io/badge/Java-OpenJDK11-purple">
     <img src="https://img.shields.io/badge/Spring Tool Suite-V4.13.0-green">
-    <img src="https://img.shields.io/badge/Model Mapper-V3.0.0-yellowgreen">
     <img src="https://img.shields.io/badge/Maven-V3.6.3-blue">
   </p>
 
@@ -33,8 +33,8 @@
 - [x] Modelar uma API RESTFul, utilizando os métodos HTTP, códigos de resposta, etc.
 - [x] Criar serviço de agendamento de tarefas e envio de emails com Java;
 - [x] Documentação de API's com Swagger
-- [ ] Implementação de testes automatizados;
-- [ ] Configuração de Deploy Contínuo;
+- [x] Implementação de testes automatizados;
+- [x] Configuração de Deploy Contínuo;
 - [ ] Publicação da API na nuvem.
 
 ## 🛠 Tecnologias
