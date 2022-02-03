@@ -7,9 +7,8 @@
     <img src="src/main/resources/img/banner.png">
   </p>
   
-  [![Build Status](https://app.travis-ci.com/Dagurasu56/library-api.svg?branch=main)](https://app.travis-ci.com/Dagurasu56/library-api)
-
   <p align="center">
+    [![Build Status](https://app.travis-ci.com/Dagurasu56/library-api.svg?branch=main)](https://app.travis-ci.com/Dagurasu56/library-api)
     <img src="https://img.shields.io/badge/Java-OpenJDK11-purple">
     <img src="https://img.shields.io/badge/Spring Tool Suite-V4.13.0-green">
     <img src="https://img.shields.io/badge/Model Mapper-V3.0.0-yellowgreen">
