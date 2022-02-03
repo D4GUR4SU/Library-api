@@ -9,6 +9,7 @@
   
   <p align="center">
     <img src="https://app.travis-ci.com/Dagurasu56/library-api.svg?branch=main">
+    <img src="https://codecov.io/gh/Dagurasu56/library-api/branch/main/graph/badge.svg?token=0TTPUR1CO2">
     <img src="https://img.shields.io/badge/Java-OpenJDK11-purple">
     <img src="https://img.shields.io/badge/Spring Tool Suite-V4.13.0-green">
     <img src="https://img.shields.io/badge/Maven-V3.6.3-blue">
