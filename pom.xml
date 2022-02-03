@@ -73,25 +73,30 @@
 			<optional>true</optional>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.6.1</version>
-            <scope>compile</scope>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.6.1</version>
-            <scope>compile</scope>
-		</dependency>
+			<scope>compile</scope>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+
+		 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency> <!-- actuator nao funciona com a dependencia do springfox acima da versao 2.6 -->
 
 	</dependencies>
 
@@ -112,7 +117,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version><!--$NO-MVN-MAN-VER$-->
+				<version>3.1.0</version><!--$NO-MVN-MAN-VER$ -->
 			</plugin>
 		</plugins>
 	</build>
