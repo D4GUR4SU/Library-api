@@ -6,7 +6,7 @@
   <p align="center">
     <img src="src/main/resources/img/banner.png">
   </p>
-
+  
   <p align="center">
     <img src="https://app.travis-ci.com/Dagurasu56/library-api.svg?branch=main">
     <img src="https://img.shields.io/badge/Java-OpenJDK11-purple">
