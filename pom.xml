@@ -17,10 +17,6 @@
 	<name>library-api</name>
 	<description>Projeto de controle de aluguel de livros</description>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-
 	<dependencies>
 
 		<dependency>
