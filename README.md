@@ -30,9 +30,9 @@
 
 ## ⚙️ Atividades
   
-- [ ] Modelar uma API RESTFul, utilizando os métodos HTTP, códigos de resposta, etc.
-- [ ] Criar serviço de agendamento de tarefas e envio de emails com Java;
-- [ ] Documentação de API's com Swagger
+- [x] Modelar uma API RESTFul, utilizando os métodos HTTP, códigos de resposta, etc.
+- [x] Criar serviço de agendamento de tarefas e envio de emails com Java;
+- [x] Documentação de API's com Swagger
 - [ ] Implementação de testes automatizados;
 - [ ] Configuração de Deploy Contínuo;
 - [ ] Publicação da API na nuvem.
