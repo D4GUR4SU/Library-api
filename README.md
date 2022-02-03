@@ -6,6 +6,8 @@
   <p align="center">
     <img src="src/main/resources/img/banner.png">
   </p>
+  
+  [![Build Status](https://app.travis-ci.com/Dagurasu56/library-api.svg?branch=main)](https://app.travis-ci.com/Dagurasu56/library-api)
 
   <p align="center">
     <img src="https://img.shields.io/badge/Java-OpenJDK11-purple">
