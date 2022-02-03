@@ -290,3 +290,110 @@ Caused by: java.net.BindException: Endereço já em uso
 2022-02-02 23:16:16.237  INFO 39448 --- [http-nio-8080-exec-5] c.d.l.api.resource.BookController        : Obtain details for book id 1 
 2022-02-02 23:16:16.248  WARN 39448 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 404 NOT_FOUND]
 2022-02-02 23:16:36.976  INFO 39448 --- [http-nio-8080-exec-6] c.d.l.api.resource.BookController        : Create a book for isbn: 1256465 
+2022-02-02 23:23:48.693  INFO 39448 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-02 23:23:48.705  INFO 39448 --- [Thread-5] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-02-02 23:23:48.963  WARN 39448 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+2022-02-02 23:23:48.966  INFO 39448 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-02 23:23:49.032  INFO 39448 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-02 23:23:56.413  INFO 39448 --- [restartedMain] c.d.libraryapi.LibraryApiApplication     : Starting LibraryApiApplication using Java 11.0.13 on root with PID 39448 (/home/dagurasu/Área de Trabalho/Projects/udemy/library-api/target/classes started by dagurasu in /home/dagurasu/Área de Trabalho/Projects/udemy/library-api)
+2022-02-02 23:23:56.414  INFO 39448 --- [restartedMain] c.d.libraryapi.LibraryApiApplication     : No active profile set, falling back to default profiles: default
+2022-02-02 23:23:56.820  INFO 39448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-02 23:23:56.848  INFO 39448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 2 JPA repository interfaces.
+2022-02-02 23:23:57.181  INFO 39448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-02 23:23:57.183  INFO 39448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-02 23:23:57.184  INFO 39448 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-02 23:23:57.202  INFO 39448 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-02 23:23:57.203  INFO 39448 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 787 ms
+2022-02-02 23:23:57.311  INFO 39448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-02-02 23:23:57.320  INFO 39448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2022-02-02 23:23:57.321  INFO 39448 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:992aad4c-a37a-42b2-a5e6-4f2b6d7a1b7d'
+2022-02-02 23:23:57.454  INFO 39448 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-02 23:23:57.465  INFO 39448 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-02-02 23:23:57.596  INFO 39448 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-02 23:23:57.597  INFO 39448 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-02 23:23:57.612  WARN 39448 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bookController' defined in file [/home/dagurasu/Área de Trabalho/Projects/udemy/library-api/target/classes/com/dagurasu/libraryapi/api/resource/BookController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.dagurasu.libraryapi.api.resource.BookController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	log cannot be resolved
+	The method getIsbn() is undefined for the type BookDTO
+	log cannot be resolved
+	log cannot be resolved
+	The method getAuthor() is undefined for the type BookDTO
+	The method getTitle() is undefined for the type BookDTO
+	The method getBook() is undefined for the type Loan
+	The method setBook(BookDTO) is undefined for the type LoanDTO
+
+2022-02-02 23:23:57.614  INFO 39448 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-02 23:23:57.615  INFO 39448 --- [restartedMain] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-02-02 23:23:57.824  WARN 39448 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+2022-02-02 23:23:57.826  INFO 39448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2022-02-02 23:23:57.849  INFO 39448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2022-02-02 23:23:57.851  INFO 39448 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-02-02 23:23:57.877  INFO 39448 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-02 23:23:57.968 ERROR 39448 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bookController' defined in file [/home/dagurasu/Área de Trabalho/Projects/udemy/library-api/target/classes/com/dagurasu/libraryapi/api/resource/BookController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.dagurasu.libraryapi.api.resource.BookController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	log cannot be resolved
+	The method getIsbn() is undefined for the type BookDTO
+	log cannot be resolved
+	log cannot be resolved
+	The method getAuthor() is undefined for the type BookDTO
+	The method getTitle() is undefined for the type BookDTO
+	The method getBook() is undefined for the type Loan
+	The method setBook(BookDTO) is undefined for the type LoanDTO
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:414) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.6.3.jar:2.6.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.6.3.jar:2.6.3]
+	at com.dagurasu.libraryapi.LibraryApiApplication.main(LibraryApiApplication.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.6.3.jar:2.6.3]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.dagurasu.libraryapi.api.resource.BookController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	log cannot be resolved
+	The method getIsbn() is undefined for the type BookDTO
+	log cannot be resolved
+	log cannot be resolved
+	The method getAuthor() is undefined for the type BookDTO
+	The method getTitle() is undefined for the type BookDTO
+	The method getBook() is undefined for the type Loan
+	The method setBook(BookDTO) is undefined for the type LoanDTO
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-5.3.15.jar:5.3.15]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326) ~[spring-beans-5.3.15.jar:5.3.15]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	log cannot be resolved
+	The method getIsbn() is undefined for the type BookDTO
+	log cannot be resolved
+	log cannot be resolved
+	The method getAuthor() is undefined for the type BookDTO
+	The method getTitle() is undefined for the type BookDTO
+	The method getBook() is undefined for the type Loan
+	The method setBook(BookDTO) is undefined for the type LoanDTO
+
+	at com.dagurasu.libraryapi.api.resource.BookController.<init>(BookController.java:55) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.15.jar:5.3.15]
+	... 24 common frames omitted
+
