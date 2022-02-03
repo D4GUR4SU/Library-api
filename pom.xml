@@ -73,19 +73,10 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.6.1</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.6.1</version>
-			<scope>compile</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>io.springfox</groupId> <artifactId>springfox-swagger2</artifactId> 
+			<version>2.6.1</version> <scope>compile</scope> </dependency> <dependency> 
+			<groupId>io.springfox</groupId> <artifactId>springfox-swagger-ui</artifactId> 
+			<version>2.6.1</version> <scope>compile</scope> </dependency> -->
 
 		<dependency>
 			<groupId>org.modelmapper</groupId>
@@ -93,10 +84,11 @@
 			<version>3.0.0</version>
 		</dependency>
 
-		 <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency> <!-- actuator nao funciona com a dependencia do springfox acima da versao 2.6 -->
+		</dependency> <!-- actuator nao funciona com a dependencia do springfox acima da versao 
+			2.6 -->
 
 		<dependency>
 			<groupId>de.codecentric</groupId>
@@ -124,6 +116,25 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version><!--$NO-MVN-MAN-VER$ -->
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.7</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
