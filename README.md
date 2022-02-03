@@ -1,5 +1,5 @@
   <h4 align="center"> 
-    🚧  Library API🚀 Em Construção... 🚧
+    🚧  Library API🚀 Concluído 🚧
   </h4>
   <br>
 
@@ -36,7 +36,7 @@
 - [x] Documentação de API's com Swagger
 - [x] Implementação de testes automatizados;
 - [x] Configuração de Deploy Contínuo;
-- [ ] Publicação da API na nuvem.
+- [x] Publicação da API na nuvem.
 
 ## 🛠 Tecnologias
 
